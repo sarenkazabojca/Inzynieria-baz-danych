@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>IBD</title>
+    <style>
+        table tr:nth-child(2n) {
+            background-color: rgba(0, 0, 0, 0.1)
+        }
+    </style>
+</head>
+<body bgcolor="#E0E0E0" text="#330019">
+<center>
+<div>
+    <h2>Zapytanie 1</h2>
+    <a href="/">Powrót</a>
+    <br/>
+    <br/>
+    <table>
+        <fieldset>
+        <b>Polecenie:</b> Nazwiska i daty urodzeń pacjentów, którym przepisano lek "Cetol-2", cierpiących na
+        cukrzycę, którzy odbyli jedną lub więcej wizyt u lekarza pracującego na oddziale
+        pediatrycznym.
+        </fieldset>
+    </table>
+    <h3>Wynik:</h3>
+    <table>
+        <thead>
+            <tr>
+                <td><b>Nazwisko</b></td>
+                <td><b>Data urodzenia</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wiersz in wiersze %}
+            <tr>
+                <td>{{ wiersz.nazwisko }}</td>
+                <td>{{ wiersz.data_urodzenia }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</center>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>IBD</title>
+    <style>
+        table tr:nth-child(2n) {
+            background-color: rgba(0, 0, 0, 0.1)
+        }
+    </style>
+</head>
+<body bgcolor="#E0E0E0" text="#330019">
+<center>
+<div>
+    <h2>Wyswietl wszystkich pracownikow</h2>
+    <a href="/">Powrót</a>
+    <br/>
+    <table>
+        <thead>
+            <tr>
+                <td><b>ID Pracownika</b></td>
+                <td><b>Imię</b></td>
+                <td><b>Nazwisko</b></td>
+                <td><b>ID Oddziału</b></td>
+                <td><b>Stanowisko</b></td>
+                <td><b>ID Pensji</b></td>
+                <td><b>Akcje</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wiersz in wiersze %}
+            <tr>
+                <td>{{ wiersz.id }}</td>
+                <td>{{ wiersz.imie }}</td>
+                <td>{{ wiersz.nazwisko }}</td>
+                <td>{{ wiersz.id_oddzialu }}</td>
+                <td>{{ wiersz.stanowisko }}</td>
+                <td>{{ wiersz.id_pensji }}</td>
+                <td>
+                    <a href="/pracownik/wyswietl/{{ wiersz.id }}">Wyświetl</a>&nbsp;&nbsp;
+                    <a href="/pracownik/edytuj/{{ wiersz.id }}">Edytuj</a>&nbsp;&nbsp;
+                    <a href="/pracownik/usun/{{ wiersz.id }}">Usuń</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</center>
+</body>
+</html>

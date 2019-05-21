@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>IBD</title>
+</head>
+<body bgcolor="#E0E0E0" text="#330019">
+<center>
+<div>
+    <h2>Edytowanie pracownika</h2>
+    <a href="/">Powrót</a>
+    <br/>
+    <form action="/pracownik/edytowany" method="POST">
+        <table>
+            <tbody>
+            <tr>
+                <td>Oddział</td>
+                <td>
+                    <select name="id_oddzialu">
+                        {% for oddzial in oddzialy %}
+                        <option value="{{ oddzial.id }}" {% if oddzial.id==pracownik.id_oddzialu %} selected {% endif %}>{{ oddzial.nazwa }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Stanowisko</td>
+                <td>
+                    <select name="stanowisko">
+                        <option value="lekarz" {% if pracownik.stanowisko=='lekarz' %} selected {% endif %}>lekarz</option>
+                        <option value="ordynator" {% if pracownik.stanowisko=='ordynator' %} selected {% endif %}>ordynator</option>
+                        <option value="oddziałowa" {% if pracownik.stanowisko=='oddziałowa' %} selected {% endif %}>oddziałowa</option>
+                        <option value="technik" {% if pracownik.stanowisko=='technik' %} selected {% endif %}>technik</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Imię</td>
+                <td><input name="imie" value="{{ pracownik.imie }}"/></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input name="nazwisko" value="{{ pracownik.nazwisko }}"/></td>
+            </tr>
+            <tr>
+                <td>Rodzaj pensji</td>
+                <td>
+                    <select name="rodzaj">
+                        <option value="stala" {% if pensja.rodzaj=='stala' %} selected {% endif %}>stała</option>
+                        <option value="miesieczna" {% if pensja.rodzaj=='miesieczna' %} selected {% endif %}>miesięczna</option>
+                        <option value="godzinowa" {% if pensja.rodzaj=='godzinowa' %} selected {% endif %}>godzinowa</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Wysokość pensji</td>
+                <td><input name="wysokosc" type="number" value="{{ pensja.wysokosc }}"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+            </tbody>
+        </table>
+        <input type="hidden" name="id" value="{{ pracownik.id }}"/>
+        <input type="hidden" name="id_pensji" value="{{ pensja.id }}"/>
+    </form>
+</div>
+</center>
+</body>
+</html>

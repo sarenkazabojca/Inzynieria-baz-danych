@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>IBD</title>
+</head>
+<body bgcolor="#E0E0E0" text="#330019">
+<center>
+<div>
+    <h2>Dodawanie pracownika</h2>
+    <a href="/">Powrót</a>
+    <br/>
+    <form action="/pracownik/dodany" method="POST">
+        <table>
+            <tbody>
+            <tr>
+                <td>Oddział</td>
+                <td>
+                    <select name="id_oddzialu">
+                        {% for oddzial in oddzialy %}
+                        <option value="{{ oddzial.id }}">{{ oddzial.nazwa }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Stanowisko</td>
+                <td>
+                    <select name="stanowisko">
+                        <option value="lekarz">lekarz</option>
+                        <option value="ordynator">ordynator</option>
+                        <option value="oddziałowa">oddziałowa</option>
+                        <option value="technik">technik</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Imię</td>
+                <td><input name="imie"/></td>
+            </tr>
+            <tr>
+                <td>Nazwisko</td>
+                <td><input name="nazwisko"/></td>
+            </tr>
+            <tr>
+                <td>Rodzaj pensji</td>
+                <td>
+                    <select name="rodzaj">
+                        <option value="stala">stała</option>
+                        <option value="miesieczna">miesięczna</option>
+                        <option value="godzinowa">godzinowa</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>Wysokość pensji</td>
+                <td><input name="wysokosc" type="number"/></td>
+            </tr>
+            <tr>
+                <td><input type="submit"></td>
+            </tr>
+            </tbody>
+        </table>
+    </form>
+</div>
+</center>
+</body>
+</html>

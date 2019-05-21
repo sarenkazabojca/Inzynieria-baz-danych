@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>IBD</title>
+    <style>
+        table tr:nth-child(2n) {
+            background-color: rgba(0, 0, 0, 0.1)
+        }
+    </style>
+</head>
+<body bgcolor="#E0E0E0" text="#330019">
+<center>
+<div>
+    <h2>Zapytanie 4</h2>
+    <a href="/">Powrót</a>
+    <br/>
+    <br/>
+    <table>
+        <fieldset>
+        <b>Polecenie:</b> Nazwisko imię lekarza, który miał najmniej wizyt pacjentów w 2015 roku.
+        </fieldset>
+    </table>
+    <h3>Wynik:</h3>
+    <table>
+        <thead>
+            <tr>
+                <td><b>Nazwisko</b></td>
+                <td><b>Imie</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wiersz in wiersze %}
+            <tr>
+                <td>{{ wiersz.nazwisko }}</td>
+                <td>{{ wiersz.imie }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</center>
+</body>
+</html>

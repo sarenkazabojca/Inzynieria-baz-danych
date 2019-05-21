@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <title>IBD</title>
+    <style>
+        table tr:nth-child(2n) {
+            background-color: rgba(0, 0, 0, 0.1)
+        }
+    </style>
+</head>
+<body bgcolor="#E0E0E0" text="#330019">
+<center>
+<div>
+    <h2>Zapytanie 5</h2>
+    <a href="/">Powrót</a>
+    <br/>
+    <br/>
+     <table>
+        <fieldset>
+        <b>Polecenie:</b> Wyświetl nazwiska i stawki godzinowe powiększone o 15% dla wszystkich pracowników z pensją naliczaną godzinowo i zaokrąglone do liczb całkowitych.
+        </fieldset>
+    </table>
+    <h3>Wynik:</h3>
+    <table>
+        <thead>
+            <tr>
+                <td><b>Nazwisko</b></td>
+                <td><b>Stawka powiększona o 15%</b></td>
+            </tr>
+        </thead>
+        <tbody>
+            {% for wiersz in wiersze %}
+            <tr>
+                <td>{{ wiersz.nazwisko }}</td>
+                <td>{{ wiersz.stawka }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+</center>
+</body>
+</html>
